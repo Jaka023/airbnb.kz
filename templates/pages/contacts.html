@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Контакты | {% endblock %}
+{% block links %}<script src="https://maps.api.2gis.ru/2.0/loader.js"></script>{% endblock %}
+{% block content %}
+<div class="section-title-page area-bg area-bg_dark area-bg_op_60">
+    <div class="area-bg__inner">
+        <div class="container text-center">
+            <h1 class="b-title-page">Наши контакты</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+                </ol>
+            </nav>
+            <!-- end .breadcrumb-->
+
+        </div>
+    </div>
+</div>
+<!-- end .b-title-page-->
+<div class="l-main-content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div id="map" style="width: 100%; height: 400px;"></div>
+        <script>
+            DG.then(function() {
+                var map = DG.map('map', {
+                    center: [43.206089, 76.893212],
+                    zoom: 15
+                });
+
+                DG.marker([43.206089, 76.893212]).addTo(map).bindPopup('Яqeqweqweqeqw');
+            });
+        </script>
+            </div>
+            <div class="col-md-6">
+                    <h2 class="ui-title-inner">Контакты</h2>
+                    <p>Мы занимаемся арендой домов и квартир в Казахстане. В случае необходимости Вы можете связаться с нами по нашим контактам</p>
+                    <div id="success"></div>
+							<div class="footer-contacts">
+								<div class="mb-3"><i class="ic icon-location-pin mr-2"></i>Казахстан, г. Алматы, ул.Розыбакиева 227/1</div>
+								<div class="mb-3"><i class="ic icon-envelope mr-2"></i>Email: <a href="mailto:info@airbnb.kz">info@airbnb.kz</a></div>
+								<div class="mb-3"><i class="ic icon-earphones-alt mr-2"></i> Тел: <a href="tel:+996 708 78-06-01">+996 708 78-06-01</a>
+								</div>
+                            </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div >
+{% endblock %}

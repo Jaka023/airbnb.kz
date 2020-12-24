@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Аппартаменты | {% endblock %}
+{% block content %}
+<div class="section-title-page area-bg area-bg_dark area-bg_op_60">
+  <div class="area-bg__inner">
+      <div class="container text-center">
+          <h1 class="b-title-page">Аппартаменты</h1>
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Аппартаменты</li>
+              </ol>
+          </nav>
+          <!-- end .breadcrumb-->
+
+      </div>
+  </div>
+</div>
+<!-- end .b-title-page-->
+
+<div class="l-main-content">
+  <div class="ui-decor ui-decor_mirror ui-decor_sm-h bg-primary"></div>
+
+  <div class="container">
+    
+    <div class="b-goods-group-2 row">
+
+{% for x in object_list %}
+      <div class="col-xl-4 col-md-6">
+        <div class="b-goods-flip">
+          <button class="flip-btn"><span></span><span class="flip-btn-mdl"></span><span></span></button>
+          <div class="flip-container">
+            <div class="flipper">
+              <div class="flip__front">
+                <div class="b-goods-flip__img"><img class="img-scale" src="{{x.image1.url}}" alt="photo" /></div>
+                <div class="b-goods-flip__main">
+                  <div class="b-goods-flip__header row no-gutters align-items-center">
+                    <div class="col"><a class="b-goods-flip__title" href="{% url 'detail' x.pk %}" style="font-size: 15px;">{{x.title}}</a></div>
+                    <div class="col-auto">
+                      <div class="b-goods-flip__price text-primary">{{x.price}} тг.</div>
+                    </div>
+                  </div>
+                  <div class="b-goods-descrip_nev_wrap">
+                    <div class="b-ex-info">{{x.description|slice:"120"}}
+                    </div>
+                    <a class="btn btn-default w-100" href="{% url 'detail' x.pk %}">Подробнее</a>
+                  </div>
+                </div>
+              </div>
+              <div class="flip__back">
+                <div class="b-goods-flip__header">
+                  <div class="b-goods-flip__title">{{x.title}}</div>
+                  <div class="flip-btn-hide"></div>
+                </div>
+                <div class="b-goods-flip-info">
+                  <div class="b-goods-flip-info__item row no-gutters justify-content-between"><span
+                    class="b-goods-flip-info__title col-auto">Город</span><span
+                    class="b-goods-flip-info__desc col-auto">{{x.city}}</span></div>
+                  <div class="b-goods-flip-info__item row no-gutters justify-content-between"><span
+                      class="b-goods-flip-info__title col-auto">Адрес</span><span
+                      class="b-goods-flip-info__desc col-auto">{{x.address}}</span></div>
+                  <div class="b-goods-flip-info__item row no-gutters justify-content-between"><span
+                      class="b-goods-flip-info__title col-auto">Комнат:</span><span
+                      class="b-goods-flip-info__desc col-auto">{{x.rooms}}</span></div>
+                  <div class="b-goods-flip-info__item row no-gutters justify-content-between"><span
+                      class="b-goods-flip-info__title col-auto">Кв.м</span><span
+                      class="b-goods-flip-info__desc col-auto">{{x.place}}</span></div>
+                  <div class="b-goods-flip-info__item row no-gutters justify-content-between"><span
+                      class="b-goods-flip-info__title col-auto">Тип</span><span
+                      class="b-goods-flip-info__desc col-auto">{{x.roomType}}</span></div>
+                      <div class="b-goods-flip-info__item row no-gutters justify-content-between"><span
+                        class="b-goods-flip-info__title col-auto">Номер телефона</span><span
+                        class="b-goods-flip-info__desc col-auto">{{x.phone}}</span></div>
+                  
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!-- end .b-goods-->
+{% endfor %}
+
+    </div>
+
+    <nav aria-label="Page navigation example">
+      {% if is_paginated %}
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="page-item active"><a class="page-link" href="#">{{ i }}</a></li>
+      {% else %}
+        <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      
+    {% endif %}
+  </ul>
+{% endif %}
+    </nav>
+
+    
+
+  </div>
+
+
+
+
+</div>
+{% endblock %}

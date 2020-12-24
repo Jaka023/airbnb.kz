@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{object.title}} | Аппартаменты | {% endblock %}
+{% block content %}
+<div class="section-title-page area-bg area-bg_dark area-bg_op_60">
+  <div class="area-bg__inner">
+      <div class="container text-center">
+          <h1 class="b-title-page">{{object.title}}</h1>
+          <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                  <li class="breadcrumb-item" aria-current="page"><a href="{% url 'appartments_list' %}">Аппартаменты</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{object.title}}</li>
+              </ol>
+          </nav>
+          <!-- end .breadcrumb-->
+
+      </div>
+  </div>
+</div>
+<!-- end .b-title-page-->
+
+ <div class="l-main-content">
+        <div class="ui-decor ui-decor_sm-h ui-decor_mirror bg-primary"></div>
+        <div class="container">
+          <section class="b-goods-f">
+            <div class="row">
+              <div class="col-lg-8">
+               
+
+                <div class="b-goods-f__slider">
+                  <div class="ui-slider-main js-slider-for">
+                      <img class="img-scale" src="{{object.image1.url}}" alt="photo"/>
+                    </div>
+                </div>
+                
+            
+                  
+                     <h2 class="b-goods-f__title">Характеристики комнаты</h2>
+                <div class="row">
+                  
+                    
+                    <div class="col-md-4">
+                      
+                      <dl class="data-list-descriptions">
+										<!-- Make -->
+					<div class="dd-item">
+						<dt>Город:</dt>
+						<dd>{{object.city}}</dd>
+						</div>
+												                    
+                    <div class="dd-item">
+						<dt class="left">Адрес:</dt>
+						<dd>{{object.address}}</dd>
+                    </div>
+							
+				
+					</dl>
+                  
+                </div>
+                    
+                    
+                    <div class="col-md-4">
+                      
+                      <dl class="data-list-descriptions">
+										<!-- Make -->
+														                    
+                    <div class="dd-item">
+						<dt class="left">Площадь:</dt>
+						<dd class="right">{{object.place}} кв.м</dd>
+                    </div>
+
+                    <div class="dd-item">
+						<dt class="left">Комнат:</dt>
+						<dd class="right">{{object.rooms}}</dd>
+                    </div>
+							
+									
+							</dl>														                    
+                    
+				
+				
+                  
+                </div>
+                    
+                    
+                    
+                    <div class="col-md-4">
+                      
+                      <dl class="data-list-descriptions">
+										<!-- Make -->
+																		                    
+                    <div class="dd-item">
+						<dt class="left">Этаж:</dt>
+						<dd class="right">{% if object.fllor %}{{object.floor}}{% endif %}</dd>
+                    </div>
+																				                    
+                    <div class="dd-item">
+						<dt class="left">Тип:</dt>
+						<dd class="right">{{object.roomType}}</dd>
+                    </div>
+																				                    
+                    
+                  	</dl>
+                </div>
+                        
+                        
+                        
+                      </div> 
+                    
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item"><a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Описание</a></li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                    <p>{{object.description}}</p>
+                  </div>
+                </div>
+           
+                  
+                  
+                  
+              </div>
+              <div class="col-lg-4">
+                <aside class="l-sidebar">
+                  <div class="b-goods-f-price">
+                    <div class="b-goods-f-price__header bg-secondary"><span class="b-goods-f-price__main">{{object.price}} тг.</span></div>
+                    
+                  </div>
+                  <div class="b-goods__wrap-bnrs">
+                      
+                      <img class="b-goods__bnr" src="{% static 'assets/img/payment-icon_02.png' %}" alt="photo"/>
+                      
+                    
+                    </div>
+                    
+                
+                    
+                    
+                  <div class="b-seller">
+                    <div class="b-seller__main"><i class="b-seller__ic flaticon-phone-call text-primary"></i>
+                      <div class="b-seller__contact"><span class="d-block">Contact Seller</span><a class="b-seller__phone" href="tel:{{object.phone}}">{{object.phone}}</a></div>
+                    </div>
+                  </div>
+                  <!-- end .b-seller-->
+                  
+                  <div class="widget-2 section-sidebar bg-gray">
+                    <h3 class="widget-title-2"><span class="widget-title__inner">Отправить сообщение</span></h3>
+                    <div class="widget-content">
+                      <div class="widget-inner">
+                        <form>
+                          <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Имя"/>
+                          </div>
+                          <div class="form-group">
+                            <textarea class="form-control" placeholder="Сообщение" rows="5"></textarea>
+                          </div>
+                          <button class="btn btn-secondary w-100">Отправить</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </aside>
+              </div>
+            </div>
+          </section>
+          <!-- end .b-goods-f-->
+          
+        </div>
+      </div>
+{% endblock %}

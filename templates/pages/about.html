@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}О нас | {% endblock %}
+{% block content %}
+<div class="section-title-page area-bg area-bg_dark area-bg_op_60">
+    <div class="area-bg__inner">
+        <div class="container text-center">
+            <h1 class="b-title-page">О нас</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">О нас</li>
+                </ol>
+            </nav>
+            <!-- end .breadcrumb-->
+
+        </div>
+    </div>
+</div>
+
+    <div class="l-main-content">
+      <div class="ui-decor ui-decor_mirror ui-decor_sm-h bg-primary"></div>
+      <div class="container">
+
+
+
+        <div class="b-about">
+          <div class="ui-decor ui-decor_down"></div>
+          <div class="container">
+
+            <div class="row">
+              <div class="col-lg-6 ">
+                <div class="text-left">
+                  <h2 class="ui-title">TANYKEEV ZHYLDYZBEK 
+                  MUHAMMED FAYAZ ZEMARI
+                  </h2>
+                  <div class="ui-content">
+                    <p>Мы студенты ALMAU Tanykeev Zhyldyzbek и Mohammed Fayaz Zemari 
+                      <br>  создали этот сайт  аренды квартир и домов для
+                      <br>  граждан нашей страны и гостей.На этом сайте вы найдете любую квартиру или дом 
+                      <br> на любой вкус и желание,и конечно же за адекватную цену
+                      <br> Желаем вам хорошего пребывания на этом сайте .
+                      <br> С уважением Таныкеев Жылдызбек и Muhammed Fayaz Zemari.</p>
+                    <ul class="arrow-list"> 
+                      <li><i class="fas fa-long-arrow-alt-right"></i>УЮТНЫЕ и КРАСИВЫЕ АПАРТАМЕНТЫ</li>
+                      <li><i class="fas fa-long-arrow-alt-right"></i>ЦЕНА И КАЧЕСТВО</li>
+                      <li><i class="fas fa-long-arrow-alt-right"></i>БЫСТРОЕ БРОНИРОВАНИЕ</li>
+                      <li><i class="fas fa-long-arrow-alt-right"></i>КАЧЕСТВЕННЫЙ СЕРВИС</li>
+                    </ul>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6"> 
+               
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+{% endblock %}
